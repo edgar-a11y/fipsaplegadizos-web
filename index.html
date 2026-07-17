@@ -10,7 +10,10 @@
 <meta name="keywords" content="cajas plegadizas, cajas de cartón impresas, fábrica de cajas CDMX, impresión offset, cartón caple, suaje, barniz UV, hot stamping, empaque plegadizo México, maquila de cajas">
 <meta name="author" content="Fábrica de Impresos, Plegadizos y Estuches S.A. de C.V.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://www.cajasplegadizasmexico.com/">
+<link rel="canonical" href="https://www.fipsa.mx/">
+<link rel="alternate" hreflang="es" href="https://www.fipsa.mx/">
+<link rel="alternate" hreflang="en" href="https://www.fipsa.mx/en/">
+<link rel="alternate" hreflang="x-default" href="https://www.fipsa.mx/">
 <meta name="geo.region" content="MX-CMX">
 <meta name="geo.placename" content="Ciudad de México">
 
@@ -20,7 +23,8 @@
 <meta property="og:site_name" content="FIPSA Plegadizos">
 <meta property="og:title" content="FIPSA | Cajas plegadizas de cartón impresas a tu medida">
 <meta property="og:description" content="Impresión offset, barniz UV, suaje, hot stamping y pegado. Todo el proceso bajo un mismo techo. 13 años fabricando empaque para marcas exigentes. Cotiza hoy.">
-<meta property="og:url" content="https://www.cajasplegadizasmexico.com/">
+<meta property="og:url" content="https://www.fipsa.mx/">
+<meta property="og:locale:alternate" content="en_US">
 <meta property="og:image" content="https://www.cajasplegadizasmexico.com/images/slider/slide2.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="FIPSA | Cajas plegadizas de cartón impresas en CDMX">
@@ -38,7 +42,7 @@
   "name": "FIPSA — Fábrica de Impresos, Plegadizos y Estuches S.A. de C.V.",
   "alternateName": "FIPSA Plegadizos",
   "description": "Fábrica de cajas plegadizas de cartón impresas. Impresión offset, barniz UV, suaje, empalme, hot stamping y pegado. Producción completa bajo un mismo techo en Ciudad de México.",
-  "url": "https://www.cajasplegadizasmexico.com/",
+  "url": "https://www.fipsa.mx/",
   "logo": "https://www.cajasplegadizasmexico.com/images/logo.png",
   "image": "https://www.cajasplegadizasmexico.com/images/slider/slide2.jpg",
   "telephone": "+525555520482",
@@ -145,6 +149,10 @@ h1,h2,h3,h4{font-family:"Archivo",sans-serif;line-height:1.04;letter-spacing:-.0
 .btn-ghost.on-dark{color:var(--paper);border-color:var(--paper)}
 .btn-ghost.on-dark:hover{background:var(--paper);color:var(--ink)}
 .btn svg{width:19px;height:19px;flex:none}
+
+/* language switch */
+.lang-sw{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600;letter-spacing:.08em;border:1px solid var(--rule);padding:5px 10px;border-radius:2px;color:var(--ink-soft)!important}
+.lang-sw:hover{background:var(--ink);color:var(--paper)!important;border-color:var(--ink)}
 
 /* ============ NAV ============ */
 header.nav{
@@ -378,6 +386,7 @@ footer{background:var(--ink);color:var(--paper);padding:74px 0 30px}
       <a href="#sectores">Sectores</a>
       <a href="#portafolio">Clientes</a>
       <a href="#contacto">Contacto</a>
+      <a class="lang-sw" href="/en/" data-setlang="en" hreflang="en" lang="en" title="English version">EN</a>
     </nav>
     <div class="nav-cta">
       <span class="nav-tel">55 5552 0482</span>
@@ -762,6 +771,20 @@ if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
 } else {
   document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in');});
 }
+
+// idioma: respeta la preferencia guardada; si no hay, sugiere EN a navegadores solo-ingles. Nunca redirige bots.
+(function(){
+  try{
+    if(/bot|crawl|spider|slurp|bingpreview|facebookexternalhit|whatsapp|telegram|linkedinbot|pinterest/i.test(navigator.userAgent))return;
+    var pref=null;try{pref=localStorage.getItem('fipsa-lang')}catch(e){}
+    if(pref==='es')return;
+    var ls=((navigator.languages&&navigator.languages.join(','))||navigator.language||'').toLowerCase();
+    if(pref==='en'||(!pref&&ls.indexOf('es')===-1&&ls.indexOf('en')>-1)){location.replace('/en/');}
+  }catch(e){}
+})();
+document.querySelectorAll('[data-setlang]').forEach(function(a){
+  a.addEventListener('click',function(){try{localStorage.setItem('fipsa-lang',a.dataset.setlang)}catch(e){}});
+});
 </script>
 </body>
 </html>
