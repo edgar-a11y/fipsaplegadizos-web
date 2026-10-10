@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>FIPSA · Panel de imágenes</title>
+<link rel="icon" href="/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F4EFE3;--paper2:#EAE3D2;--ink:#171310;--soft:#3A332B;--kraft:#C39156;--kraftd:#9A6E3A;--red:#D8362A;--redd:#B22A20;--ok:#2E7D4F;--rule:rgba(23,19,16,.16)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",system-ui,sans-serif;font-size:16px;line-height:1.5}
+.wrap{max-width:1100px;margin:0 auto;padding:0 18px}
+h1,h2,h3{font-family:Archivo,sans-serif;letter-spacing:-.02em}
+.mono{font-family:"IBM Plex Mono",monospace}
+header{position:sticky;top:0;z-index:40;background:rgba(244,239,227,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+.head{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand img{height:32px}
+.brand b{font-family:Archivo;font-weight:900;font-size:18px}
+.brand span{font-family:"IBM Plex Mono";font-size:10px;letter-spacing:.14em;color:var(--kraftd);text-transform:uppercase;display:block;margin-top:-2px}
+.deploy-note{font-family:"IBM Plex Mono";font-size:11px;color:var(--soft);text-align:right}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:14px;padding:10px 16px;border-radius:3px;border:2px solid var(--ink);background:var(--ink);color:var(--paper);cursor:pointer;font-family:"IBM Plex Sans"}
+.btn:disabled{opacity:.5;cursor:default}
+.btn-red{background:var(--red);border-color:var(--red);color:#fff}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn-sm{padding:7px 12px;font-size:13px}
+/* login */
+.login{max-width:380px;margin:12vh auto;background:#fff8;border:1px solid var(--rule);padding:34px;border-radius:4px}
+.login h1{font-size:24px;margin-bottom:4px}
+.login p{color:var(--soft);font-size:14px;margin-bottom:20px}
+input,textarea{width:100%;font-family:"IBM Plex Sans";font-size:15px;padding:11px 12px;border:1px solid var(--rule);border-radius:3px;background:#fff;color:var(--ink)}
+input:focus,textarea:focus{outline:2px solid var(--red);outline-offset:-1px}
+.err{color:var(--redd);font-size:13px;margin-top:10px;min-height:18px}
+/* secciones */
+.sec{margin:34px 0 10px}
+.sec h2{font-size:20px;display:flex;align-items:center;gap:10px}
+.sec .cnt{font-family:"IBM Plex Mono";font-size:11px;background:var(--paper2);padding:3px 8px;border-radius:2px;color:var(--kraftd)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;margin-top:14px}
+.card{background:#fff;border:1px solid var(--rule);border-radius:4px;overflow:hidden;display:flex;flex-direction:column}
+.thumb{position:relative;aspect-ratio:3/2;background:var(--paper2) center/cover no-repeat}
+.thumb.square{aspect-ratio:1/1}
+.chip{position:absolute;top:8px;left:8px;font-family:"IBM Plex Mono";font-size:10px;font-weight:600;letter-spacing:.06em;padding:4px 8px;border-radius:2px;background:var(--red);color:#fff}
+.chip.ok{background:var(--ok)}
+.cbody{padding:12px 14px;display:flex;flex-direction:column;gap:3px;flex:1}
+.cbody h3{font-size:15px}
+.cbody .loc{font-size:12px;color:var(--soft)}
+.cbody .dim{font-family:"IBM Plex Mono";font-size:11px;color:var(--kraftd)}
+.cbtns{display:flex;gap:8px;padding:0 14px 14px;flex-wrap:wrap}
+/* modal */
+.overlay{position:fixed;inset:0;background:rgba(23,19,16,.55);display:none;align-items:center;justify-content:center;z-index:90;padding:16px}
+.overlay.open{display:flex}
+.modal{background:var(--paper);border-radius:6px;max-width:680px;width:100%;max-height:92vh;overflow:auto;padding:24px}
+.modal h3{font-size:19px;margin-bottom:4px}
+.modal .sub{font-size:13px;color:var(--soft);margin-bottom:16px}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.cmp figure{margin:0}
+.cmp .box{aspect-ratio:3/2;background:var(--paper2) center/cover no-repeat;border:1px solid var(--rule);border-radius:3px}
+.cmp .box.square{aspect-ratio:1/1}
+.cmp figcaption{font-family:"IBM Plex Mono";font-size:11px;color:var(--soft);margin-top:6px;text-align:center}
+.tip{background:var(--paper2);border-left:3px solid var(--kraft);padding:10px 12px;font-size:13px;color:var(--soft);border-radius:0 3px 3px 0;margin:12px 0}
+.mrow{display:flex;gap:10px;justify-content:flex-end;margin-top:18px;flex-wrap:wrap}
+.status{font-family:"IBM Plex Mono";font-size:12px;margin-top:12px;min-height:16px}
+.status.good{color:var(--ok)}
+.status.bad{color:var(--redd)}
+label.fld{display:block;font-family:"IBM Plex Mono";font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--kraftd);margin:12px 0 5px}
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:12px 20px;border-radius:4px;font-size:14px;display:none;z-index:99;max-width:92vw;text-align:center}
+@media(max-width:560px){.cmp{grid-template-columns:1fr}.deploy-note{display:none}}
+</style>
+</head>
+<body>
+
+<div id="viewLogin" class="wrap" style="display:none">
+  <div class="login">
+    <h1>Panel de imágenes</h1>
+    <p>FIPSA · fipsa.mx — administra las fotos del sitio sin tocar código.</p>
+    <label class="fld">Contraseña</label>
+    <input type="password" id="pw" autocomplete="current-password">
+    <div class="err" id="loginErr"></div>
+    <button class="btn btn-red" style="width:100%;margin-top:6px" onclick="login()">Entrar</button>
+  </div>
+</div>
+
+<div id="viewApp" style="display:none">
+  <header><div class="wrap head">
+    <div class="brand"><img src="/img/logo.png" alt=""><div><b>Panel de imágenes</b><span>fipsa.mx · ES + EN</span></div></div>
+    <div class="deploy-note">Cada cambio se publica solo<br>en ~1 minuto</div>
+  </div></header>
+  <main class="wrap" id="sections" style="padding-bottom:60px"></main>
+</div>
+
+<!-- modal reemplazo -->
+<div class="overlay" id="ovRep">
+  <div class="modal">
+    <h3 id="repTitle"></h3>
+    <div class="sub" id="repLoc"></div>
+    <div class="tip" id="repTip"></div>
+    <div class="cmp">
+      <figure><div class="box" id="repOld"></div><figcaption id="repOldCap">Actual</figcaption></figure>
+      <figure><div class="box" id="repNew"></div><figcaption id="repNewCap">Nueva</figcaption></figure>
+    </div>
+    <div class="status" id="repStatus"></div>
+    <div class="mrow">
+      <button class="btn btn-ghost" onclick="closeRep()">Cancelar</button>
+      <button class="btn btn-red" id="repGo" onclick="publishRep()">Optimizar y publicar</button>
+    </div>
+  </div>
+</div>
+
+<!-- modal texto SEO -->
+<div class="overlay" id="ovAlt">
+  <div class="modal">
+    <h3>Texto SEO (alt) — <span id="altTitle"></span></h3>
+    <div class="sub">Describe la foto como la buscaría un cliente. Google lo lee; también lo usan lectores de pantalla.</div>
+    <label class="fld">Español (página /)</label>
+    <textarea id="altEs" rows="2"></textarea>
+    <label class="fld">Inglés (página /en/)</label>
+    <textarea id="altEn" rows="2"></textarea>
+    <div class="status" id="altStatus"></div>
+    <div class="mrow">
+      <button class="btn btn-ghost" onclick="ovAlt.classList.remove('open')">Cancelar</button>
+      <button class="btn btn-red" id="altGo" onclick="publishAlt()">Guardar y publicar</button>
+    </div>
+  </div>
+</div>
+
+<input type="file" id="fPick" accept="image/*" hidden>
+<input type="file" id="fCam" accept="image/*" capture="environment" hidden>
+<div class="toast" id="toast"></div>
+
+<script>
+const $ = id => document.getElementById(id);
+const api = (payload) => fetch('/api/panel', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload)}).then(async r => { const j = await r.json().catch(()=>({error:'Respuesta inválida'})); if(!r.ok) throw new Error(j.error||('HTTP '+r.status)); return j; });
+let MAN = null, cur = null, newBlob = null, bust = Date.now();
+
+function toast(msg, ms=4000){ const t=$('toast'); t.textContent=msg; t.style.display='block'; clearTimeout(t._h); t._h=setTimeout(()=>t.style.display='none', ms); }
+
+async function login(){
+  $('loginErr').textContent='';
+  try{ await api({action:'login', password: $('pw').value}); start(); }
+  catch(e){ $('loginErr').textContent = e.message; }
+}
+$('pw').addEventListener('keydown', e => { if(e.key==='Enter') login(); });
+
+async function start(){
+  try{
+    const st = await api({action:'state'});
+    MAN = st.manifest;
+    $('viewLogin').style.display='none';
+    $('viewApp').style.display='block';
+    render();
+  }catch(e){
+    $('viewLogin').style.display='block';
+    $('viewApp').style.display='none';
+    if(!/Sesión/.test(e.message)) $('loginErr').textContent = e.message;
+  }
+}
+
+function render(){
+  const secs = {};
+  MAN.slots.forEach(s => { (secs[s.section] = secs[s.section] || []).push(s); });
+  const root = $('sections'); root.innerHTML='';
+  const pend = MAN.slots.filter(s=>s.needs_photo).length;
+  const intro = document.createElement('div');
+  intro.className='sec';
+  intro.innerHTML = `<h2>Imágenes del sitio <span class="cnt">${MAN.slots.length} en total</span>${pend?`<span class="cnt" style="background:var(--red);color:#fff">${pend} sin foto real</span>`:''}</h2>
+  <p style="font-size:14px;color:var(--soft);margin-top:6px">Toca <b>Cambiar foto</b> en cualquier tarjeta. La foto se recorta y optimiza sola al tamaño correcto, y el sitio (español e inglés) se actualiza en un minuto.</p>`;
+  root.appendChild(intro);
+  for(const [name, slots] of Object.entries(secs)){
+    const d = document.createElement('div'); d.className='sec';
+    d.innerHTML = `<h2>${name} <span class="cnt">${slots.length}</span></h2>`;
+    const g = document.createElement('div'); g.className='grid';
+    slots.forEach(s => {
+      const sq = s.w === s.h;
+      const c = document.createElement('div'); c.className='card';
+      c.innerHTML = `
+        <div class="thumb${sq?' square':''}" style="background-image:url('/img/${s.file}?v=${bust}')">
+          ${s.needs_photo ? '<span class="chip">FALTA FOTO REAL</span>' : '<span class="chip ok">OK</span>'}
+        </div>
+        <div class="cbody"><h3>${s.label}</h3><div class="loc">${s.location}</div>
+        <div class="dim">se optimiza a ${s.w}×${s.h} ${s.kind.toUpperCase()}</div></div>
+        <div class="cbtns">
+          <button class="btn btn-red btn-sm" onclick="pick('${s.id}', false)">📁 Cambiar foto</button>
+          <button class="btn btn-ghost btn-sm" onclick="pick('${s.id}', true)">📷 Cámara</button>
+          ${s.alt ? `<button class="btn btn-ghost btn-sm" onclick="editAlt('${s.id}')">✏️ SEO</button>` : ''}
+        </div>`;
+      g.appendChild(c);
+    });
+    d.appendChild(g); root.appendChild(d);
+  }
+}
+
+// ---------- reemplazo ----------
+function pick(id, cam){
+  cur = MAN.slots.find(s=>s.id===id);
+  const inp = cam ? $('fCam') : $('fPick');
+  inp.value=''; inp.onchange = () => { if(inp.files[0]) prepare(inp.files[0]); };
+  inp.click();
+}
+async function prepare(file){
+  const img = await createImageBitmap(file).catch(()=>null);
+  if(!img){ toast('No pude leer esa imagen. Usa JPG, PNG o WebP.'); return; }
+  // reducir en el teléfono para subir rápido (el servidor hace el recorte fino)
+  const MAX = 2000, sc = Math.min(1, MAX/Math.max(img.width,img.height));
+  const cv = document.createElement('canvas');
+  cv.width = Math.round(img.width*sc); cv.height = Math.round(img.height*sc);
+  cv.getContext('2d').drawImage(img, 0, 0, cv.width, cv.height);
+  newBlob = await new Promise(r => cv.toBlob(r, 'image/jpeg', .9));
+  const sq = cur.w === cur.h;
+  $('repTitle').textContent = cur.label;
+  $('repLoc').textContent = cur.location;
+  $('repTip').textContent = '📸 ' + (cur.tip || '');
+  $('repOld').className = 'box' + (sq?' square':''); $('repNew').className = 'box' + (sq?' square':'');
+  $('repOld').style.backgroundImage = `url('/img/${cur.file}?v=${bust}')`;
+  $('repNew').style.backgroundImage = `url('${URL.createObjectURL(newBlob)}')`;
+  $('repOldCap').textContent = 'Actual';
+  $('repNewCap').textContent = `Nueva · ${Math.round(newBlob.size/1024)} KB antes de optimizar`;
+  $('repStatus').textContent=''; $('repStatus').className='status';
+  $('repGo').disabled = false;
+  $('ovRep').classList.add('open');
+}
+function closeRep(){ $('ovRep').classList.remove('open'); }
+async function publishRep(){
+  $('repGo').disabled = true;
+  const st = $('repStatus'); st.className='status'; st.textContent = 'Optimizando y publicando…';
+  try{
+    const b64 = await new Promise(r => { const fr = new FileReader(); fr.onload=()=>r(fr.result.split(',')[1]); fr.readAsDataURL(newBlob); });
+    const res = await api({action:'replace', slot: cur.id, data: b64});
+    st.className='status good';
+    st.textContent = `✓ Publicado (${res.note}: ${res.kb_in} KB → ${res.kb_out} KB). El sitio lo mostrará en ~1 minuto.`;
+    cur.needs_photo = false;
+    setTimeout(()=>{ bust = Date.now(); render(); closeRep(); toast('✓ "'+cur.label+'" actualizada. Dale un minuto y recarga fipsa.mx para verla.', 6000); }, 1600);
+  }catch(e){
+    st.className='status bad'; st.textContent = '✗ ' + e.message; $('repGo').disabled = false;
+    if(/Sesión/.test(e.message)) setTimeout(start, 1200);
+  }
+}
+
+// ---------- alt ----------
+function editAlt(id){
+  cur = MAN.slots.find(s=>s.id===id);
+  $('altTitle').textContent = cur.label;
+  $('altEs').value = (cur.alt && cur.alt.es) || '';
+  $('altEn').value = (cur.alt && cur.alt.en) || '';
+  $('altStatus').textContent=''; $('altStatus').className='status';
+  $('altGo').disabled=false;
+  $('ovAlt').classList.add('open');
+}
+async function publishAlt(){
+  $('altGo').disabled = true;
+  const st = $('altStatus'); st.className='status'; st.textContent='Guardando…';
+  try{
+    await api({action:'alt', slot: cur.id, alt_es: $('altEs').value.trim(), alt_en: $('altEn').value.trim()});
+    cur.alt = {es: $('altEs').value.trim(), en: $('altEn').value.trim()};
+    st.className='status good'; st.textContent='✓ Guardado y publicado.';
+    setTimeout(()=>$('ovAlt').classList.remove('open'), 1200);
+  }catch(e){ st.className='status bad'; st.textContent='✗ '+e.message; $('altGo').disabled=false; }
+}
+
+start();
+</script>
+</body>
+</html>

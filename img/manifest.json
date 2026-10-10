@@ -1,0 +1,309 @@
+{
+ "version": 1,
+ "repo": "edgar-a11y/fipsaplegadizos-web",
+ "slots": [
+  {
+   "id": "logo",
+   "file": "logo.png",
+   "section": "Identidad",
+   "label": "Logotipo FIPSA",
+   "location": "Menú superior y favicon (ES y EN)",
+   "w": 130,
+   "h": 50,
+   "kind": "png",
+   "needs_photo": false,
+   "tip": "PNG con fondo transparente, 130×50 aprox.",
+   "alt": {
+    "es": "FIPSA - Fábrica de cajas plegadizas de cartón",
+    "en": "FIPSA - folding carton manufacturer in Mexico"
+   },
+   "fixed": true
+  },
+  {
+   "id": "hero",
+   "file": "hero-cajas-fipsa.webp",
+   "section": "Portada",
+   "label": "Montaje de empaques (hero)",
+   "location": "Primera pantalla, junto al titular (ES y EN)",
+   "w": 1156,
+   "h": 672,
+   "kind": "webp",
+   "needs_photo": false,
+   "tip": "Montaje de productos con fondo recortado o neutro. Es la foto más importante del sitio.",
+   "alt": {
+    "es": "Selección de cajas plegadizas de cartón impresas fabricadas por FIPSA para diversas marcas e industrias",
+    "en": "Selection of custom printed folding cartons manufactured by FIPSA in Mexico for brands across industries"
+   },
+   "fixed": false
+  },
+  {
+   "id": "og",
+   "file": "og-fipsa.jpg",
+   "section": "Portada",
+   "label": "Imagen para redes (Open Graph)",
+   "location": "Vista previa al compartir el sitio en WhatsApp/Facebook/LinkedIn",
+   "w": 1024,
+   "h": 685,
+   "kind": "jpeg",
+   "needs_photo": false,
+   "tip": "Foto llamativa de planta o productos; evita texto pequeño.",
+   "alt": null,
+   "fixed": false
+  },
+  {
+   "id": "cap-offset",
+   "file": "impresion-offset-heidelberg.webp",
+   "section": "Capacidad instalada",
+   "label": "Impresión 4 colores",
+   "location": "Sección Capacidad, tarjeta 1",
+   "w": 760,
+   "h": 508,
+   "kind": "webp",
+   "needs_photo": false,
+   "tip": "Foto horizontal, máquina completa, bien iluminada y con el área ordenada.",
+   "alt": {
+    "es": "Impresión offset a 4 colores Heidelberg y Roland en FIPSA",
+    "en": "4-color Heidelberg and Roland offset printing at FIPSA Mexico"
+   },
+   "fixed": false
+  },
+  {
+   "id": "cap-planta",
+   "file": "planta-impresion-fipsa.webp",
+   "section": "Capacidad instalada",
+   "label": "Tecnología alemana",
+   "location": "Sección Capacidad, tarjeta 2",
+   "w": 760,
+   "h": 508,
+   "kind": "webp",
+   "needs_photo": false,
+   "tip": "Foto horizontal, máquina completa, bien iluminada y con el área ordenada.",
+   "alt": {
+    "es": "Maquinaria alemana de impresión con tintas convencionales, PQ y UV",
+    "en": "German printing machinery running conventional, hybrid and UV inks"
+   },
+   "fixed": false
+  },
+  {
+   "id": "cap-barniz",
+   "file": "barniz-uv.webp",
+   "section": "Capacidad instalada",
+   "label": "Barniz UV",
+   "location": "Sección Capacidad, tarjeta 3",
+   "w": 760,
+   "h": 508,
+   "kind": "webp",
+   "needs_photo": false,
+   "tip": "Foto horizontal, máquina completa, bien iluminada y con el área ordenada.",
+   "alt": {
+    "es": "Barniz UV brillante, mate, a registro y texturizado",
+    "en": "Gloss, matte, spot and textured UV coating"
+   },
+   "fixed": false
+  },
+  {
+   "id": "cap-iberica",
+   "file": "suaje-plano-iberica.webp",
+   "section": "Capacidad instalada",
+   "label": "Suaje plano Ibérica 70×95",
+   "location": "Sección Capacidad, tarjeta 4",
+   "w": 760,
+   "h": 508,
+   "kind": "webp",
+   "needs_photo": true,
+   "tip": "Foto horizontal, máquina completa, bien iluminada y con el área ordenada.",
+   "alt": {
+    "es": "Suaje plano Ibérica 70x95 en FIPSA",
+    "en": "Ibérica 70x95 flatbed die-cutter at FIPSA"
+   },
+   "fixed": false
+  },
+  {
+   "id": "cap-bobst",
+   "file": "pegado-lineal-bobst.webp",
+   "section": "Capacidad instalada",
+   "label": "Pegado lineal · fondo automático",
+   "location": "Sección Capacidad, tarjeta 5",
+   "w": 760,
+   "h": 508,
+   "kind": "webp",
+   "needs_photo": false,
+   "tip": "Foto horizontal, máquina completa, bien iluminada y con el área ordenada.",
+   "alt": {
+    "es": "Pegado lineal y fondo automático Bobst en caple y microcorrugado",
+    "en": "Bobst straight-line and crash-lock gluing for paperboard and micro-flute"
+   },
+   "fixed": false
+  },
+  {
+   "id": "cap-60cm",
+   "file": "pegadora-60cm.webp",
+   "section": "Capacidad instalada",
+   "label": "Línea de 60 cm",
+   "location": "Sección Capacidad, tarjeta 6",
+   "w": 760,
+   "h": 508,
+   "kind": "webp",
+   "needs_photo": false,
+   "tip": "Foto horizontal, máquina completa, bien iluminada y con el área ordenada.",
+   "alt": {
+    "es": "Pegadora de 60 cm para cajas pequeñas",
+    "en": "60 cm gluing line for small cartons"
+   },
+   "fixed": false
+  },
+  {
+   "id": "cap-hot",
+   "file": "hot-stamping.webp",
+   "section": "Capacidad instalada",
+   "label": "Hot stamping",
+   "location": "Sección Capacidad, tarjeta 7",
+   "w": 760,
+   "h": 508,
+   "kind": "webp",
+   "needs_photo": false,
+   "tip": "Foto horizontal, máquina completa, bien iluminada y con el área ordenada.",
+   "alt": {
+    "es": "Hot stamping, 3 tirones por tiempo",
+    "en": "Hot stamping, 3 pulls per cycle"
+   },
+   "fixed": false
+  },
+  {
+   "id": "cap-ctp",
+   "file": "prepensa-ctp.webp",
+   "section": "Capacidad instalada",
+   "label": "Prepensa CTP",
+   "location": "Sección Capacidad, tarjeta 8",
+   "w": 760,
+   "h": 508,
+   "kind": "webp",
+   "needs_photo": false,
+   "tip": "Foto horizontal, máquina completa, bien iluminada y con el área ordenada.",
+   "alt": {
+    "es": "Prepensa CTP 8 oficios en FIPSA",
+    "en": "8-up CTP prepress at FIPSA"
+   },
+   "fixed": false
+  },
+  {
+   "id": "cap-thompson",
+   "file": "suaje-thompson.webp",
+   "section": "Capacidad instalada",
+   "label": "Suaje Thompson",
+   "location": "Sección Capacidad, tarjeta 9",
+   "w": 760,
+   "h": 508,
+   "kind": "webp",
+   "needs_photo": true,
+   "tip": "Foto horizontal, máquina completa, bien iluminada y con el área ordenada.",
+   "alt": {
+    "es": "Suaje Thompson en FIPSA",
+    "en": "Thompson die-cutter at FIPSA"
+   },
+   "fixed": false
+  },
+  {
+   "id": "cli-pelikan",
+   "file": "cajas-pelikan-acuarelas.webp",
+   "section": "Clientes",
+   "label": "Pelikan México",
+   "location": "Sección Clientes, tarjeta 1",
+   "w": 920,
+   "h": 920,
+   "kind": "webp",
+   "needs_photo": false,
+   "tip": "Producto sobre fondo blanco o neutro, luz pareja, sin sombras duras.",
+   "alt": {
+    "es": "Cajas plegadizas y cartoncillos para acuarelas Pelikan México",
+    "en": "Folding cartons and sleeves for Pelikan Mexico watercolors"
+   },
+   "fixed": false
+  },
+  {
+   "id": "cli-leoncito",
+   "file": "cajas-lapices-leoncito.webp",
+   "section": "Clientes",
+   "label": "Leoncito",
+   "location": "Sección Clientes, tarjeta 2",
+   "w": 920,
+   "h": 920,
+   "kind": "webp",
+   "needs_photo": false,
+   "tip": "Producto sobre fondo blanco o neutro, luz pareja, sin sombras duras.",
+   "alt": {
+    "es": "Cajas plegadizas para lápices Leoncito",
+    "en": "Folding cartons for Leoncito pencils"
+   },
+   "fixed": false
+  },
+  {
+   "id": "cli-protein",
+   "file": "instructivos-farmaceuticos.webp",
+   "section": "Clientes",
+   "label": "Proteín (instructivos)",
+   "location": "Sección Clientes, tarjeta 3",
+   "w": 920,
+   "h": 920,
+   "kind": "webp",
+   "needs_photo": false,
+   "tip": "Producto sobre fondo blanco o neutro, luz pareja, sin sombras duras.",
+   "alt": {
+    "es": "Instructivos farmacéuticos impresos Proteín",
+    "en": "Printed pharmaceutical inserts for Proteín"
+   },
+   "fixed": false
+  },
+  {
+   "id": "cli-taifelds",
+   "file": "cajas-galletas-taifelds.webp",
+   "section": "Clientes",
+   "label": "TAIFELDS de México",
+   "location": "Sección Clientes, tarjeta 4",
+   "w": 920,
+   "h": 920,
+   "kind": "webp",
+   "needs_photo": false,
+   "tip": "Producto sobre fondo blanco o neutro, luz pareja, sin sombras duras.",
+   "alt": {
+    "es": "Cajas para galletas TAIFELDS de México",
+    "en": "Cookie cartons for TAIFELDS de Mexico"
+   },
+   "fixed": false
+  },
+  {
+   "id": "cli-spinmaster",
+   "file": "empaque-microcorrugado-spinmaster.webp",
+   "section": "Clientes",
+   "label": "SPIN Master de México",
+   "location": "Sección Clientes, tarjeta 5",
+   "w": 920,
+   "h": 920,
+   "kind": "webp",
+   "needs_photo": true,
+   "tip": "Producto sobre fondo blanco o neutro, luz pareja, sin sombras duras.",
+   "alt": {
+    "es": "Empaques en microcorrugado SPIN Master de México",
+    "en": "Micro-flute packaging for SPIN Master Mexico"
+   },
+   "fixed": false
+  },
+  {
+   "id": "cli-vasos",
+   "file": "vasos-papel-impresos.webp",
+   "section": "Clientes",
+   "label": "Vasos de papel impresos",
+   "location": "Sección Clientes, tarjeta 6",
+   "w": 920,
+   "h": 920,
+   "kind": "webp",
+   "needs_photo": false,
+   "tip": "Producto sobre fondo blanco o neutro, luz pareja, sin sombras duras.",
+   "alt": {
+    "es": "Vasos de papel impresos para bebidas y helado fabricados por FIPSA",
+    "en": "Printed paper cups for beverages and ice cream made by FIPSA"
+   },
+   "fixed": false
+  }
+ ]
+}
