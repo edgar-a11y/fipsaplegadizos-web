@@ -311,13 +311,13 @@
    "section": "Temporada",
    "label": "Caja para rosca de Reyes (base y tapa)",
    "location": "Página /cajas-para-rosca-de-reyes/ y aviso de temporada en la portada",
-   "w": 820,
-   "h": 530,
+   "w": 900,
+   "h": 582,
    "kind": "webp",
    "needs_photo": true,
-   "tip": "Foto de la caja de base y tapa con el diseño de línea (ideal: armada, con una rosca, fondo claro). Hoy es el render Rosquillo Especial.",
+   "tip": "Hoy es una ilustración. Sube una foto real de la caja de base y tapa armada, con una rosca dentro y fondo claro (sin arte de clientes).",
    "alt": {
-    "es": "Caja de base y tapa para rosca de Reyes con diseño de línea Rosquillo Especial, fabricada por FIPSA",
+    "es": "Ilustración de caja de base y tapa armable para rosca de Reyes fabricada por FIPSA",
     "en": ""
    },
    "pages": [
