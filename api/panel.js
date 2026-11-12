@@ -2,7 +2,9 @@
 // Requiere variables de entorno: ADMIN_PASSWORD, GITHUB_TOKEN
 const crypto = require('crypto');
 
-const REPO = 'edgar-a11y/fipsaplegadizos-web';
+// Repo y rama donde vive el sitio (configurables desde Vercel: GITHUB_REPO / GITHUB_BRANCH)
+const REPO = process.env.GITHUB_REPO || 'edgar-a11y/fipsaplegadizos-web';
+const BRANCH = process.env.GITHUB_BRANCH || 'main';
 const GH = 'https://api.github.com';
 
 // ---------- utilidades ----------
@@ -41,13 +43,13 @@ async function gh(path, opts = {}) {
   return r;
 }
 async function getFile(path) {
-  const r = await gh(`/repos/${REPO}/contents/${path}?ref=main&t=${Date.now()}`);
+  const r = await gh(`/repos/${REPO}/contents/${path}?ref=${encodeURIComponent(BRANCH)}&t=${Date.now()}`);
   if (r.status === 404) return null;
   const j = await r.json();
   return { sha: j.sha, buf: Buffer.from(j.content, 'base64') };
 }
 async function putFile(path, buf, message, sha) {
-  const body = { message, content: buf.toString('base64'), branch: 'main' };
+  const body = { message, content: buf.toString('base64'), branch: BRANCH };
   if (sha) body.sha = sha;
   const r = await gh(`/repos/${REPO}/contents/${path}`, {
     method: 'PUT', body: JSON.stringify(body),
@@ -103,15 +105,22 @@ async function doAlt(body) {
   if (!slot || !slot.alt) throw new Error('Slot sin texto alternativo editable');
 
   const esc = s => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
-  const edits = [['index.html', esc(body.alt_es)], ['en/index.html', esc(body.alt_en)]];
-  for (const [path, alt] of edits) {
+  // Páginas donde aparece la imagen: por defecto portada ES y EN; un slot puede declarar las suyas (todas en español).
+  const edits = slot.pages
+    ? slot.pages.map(p => [p, esc(body.alt_es), false])
+    : [['index.html', esc(body.alt_es), true], ['en/index.html', esc(body.alt_en), true]];
+  let done = 0;
+  for (const [path, alt, required] of edits) {
     const f = await getFile(path);
+    if (!f) { if (required) throw new Error('No existe ' + path); continue; }
     let html = f.buf.toString('utf-8');
-    const re = new RegExp('(src="/img/' + slot.file.replace('.', '\\.') + '"[^>]*alt=")[^"]*(")');
-    if (!re.test(html)) throw new Error('No encontré la imagen en ' + path);
+    const re = new RegExp('(src="/img/' + slot.file.replace('.', '\\.') + '"[^>]*alt=")[^"]*(")', 'g');
+    if (!re.test(html)) { if (required) throw new Error('No encontré la imagen en ' + path); continue; }
     html = html.replace(re, '$1' + alt + '$2');
     await putFile(path, Buffer.from(html), `Panel: texto SEO de "${slot.label}" (${path})`, f.sha);
+    done++;
   }
+  if (!done) throw new Error('No encontré la imagen en ninguna página');
   slot.alt = { es: body.alt_es, en: body.alt_en };
   await putFile('img/manifest.json', Buffer.from(JSON.stringify(man, null, 1)),
     `Panel: texto SEO de ${slot.id}`, manFile.sha);
