@@ -311,13 +311,13 @@
    "section": "Temporada",
    "label": "Caja para rosca de Reyes (base y tapa)",
    "location": "Página /cajas-para-rosca-de-reyes/ y aviso de temporada en la portada",
-   "w": 900,
-   "h": 582,
+   "w": 1000,
+   "h": 664,
    "kind": "webp",
    "needs_photo": true,
-   "tip": "Hoy es una ilustración. Sube una foto real de la caja de base y tapa armada, con una rosca dentro y fondo claro (sin arte de clientes).",
+   "tip": "Hoy es una imagen generada con IA (ilustrativa). Sube una foto real de la caja armada: tapa impresa + base kraft, con rosca dentro. Sin arte de clientes.",
    "alt": {
-    "es": "Ilustración de caja de base y tapa armable para rosca de Reyes fabricada por FIPSA",
+    "es": "Caja para rosca de Reyes con tapa impresa azul marino y base de microcorrugado kraft, con una rosca dentro",
     "en": ""
    },
    "pages": [
