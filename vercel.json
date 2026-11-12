@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    { "source": "/img/cajas-rosca-reyes.jpg", "destination": "https://cajasplegadizasmexico.com/images/portafolios/Roscas-1.jpg" }
+  ],
+  "headers": [
+    { "source": "/img/cajas-rosca-reyes.jpg", "headers": [ { "key": "Cache-Control", "value": "public, max-age=86400, s-maxage=604800" } ] }
+  ]
+}
