@@ -307,17 +307,17 @@
   },
   {
    "id": "rosca",
-   "file": "cajas-rosca-reyes.jpg",
+   "file": "rosca-base-tapa.webp",
    "section": "Temporada",
-   "label": "Cajas para rosca de Reyes",
+   "label": "Caja para rosca de Reyes (base y tapa)",
    "location": "Página /cajas-para-rosca-de-reyes/ y aviso de temporada en la portada",
-   "w": 900,
-   "h": 900,
-   "kind": "jpeg",
+   "w": 820,
+   "h": 530,
+   "kind": "webp",
    "needs_photo": true,
-   "tip": "Foto cuadrada de tus cajas de rosca (idealmente armadas, con una rosca dentro, fondo claro). Hoy se muestra la foto antigua de 461 px.",
+   "tip": "Foto de la caja de base y tapa con el diseño de línea (ideal: armada, con una rosca, fondo claro). Hoy es el render Rosquillo Especial.",
    "alt": {
-    "es": "Cajas de cartón para rosca de Reyes con ventana en forma de estrella, diseños de línea en azul y rojo, fabricadas por FIPSA",
+    "es": "Caja de base y tapa para rosca de Reyes con diseño de línea Rosquillo Especial, fabricada por FIPSA",
     "en": ""
    },
    "pages": [
