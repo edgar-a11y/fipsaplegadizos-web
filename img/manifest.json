@@ -304,6 +304,27 @@
     "en": "Printed paper cups for beverages and ice cream made by FIPSA"
    },
    "fixed": false
+  },
+  {
+   "id": "rosca",
+   "file": "cajas-rosca-reyes.jpg",
+   "section": "Temporada",
+   "label": "Cajas para rosca de Reyes",
+   "location": "Página /cajas-para-rosca-de-reyes/ y aviso de temporada en la portada",
+   "w": 900,
+   "h": 900,
+   "kind": "jpeg",
+   "needs_photo": true,
+   "tip": "Foto cuadrada de tus cajas de rosca (idealmente armadas, con una rosca dentro, fondo claro). Hoy se muestra la foto antigua de 461 px.",
+   "alt": {
+    "es": "Cajas de cartón para rosca de Reyes con ventana en forma de estrella, diseños de línea en azul y rojo, fabricadas por FIPSA",
+    "en": ""
+   },
+   "pages": [
+    "cajas-para-rosca-de-reyes/index.html",
+    "index.html"
+   ],
+   "fixed": false
   }
  ]
 }
